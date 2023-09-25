@@ -24,15 +24,6 @@
       font-size: 1.2em;
     }
 
-    @keyframes messageAnimation {
-      0% { opacity: 0; transform: translateY(-50px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    #message p {
-      animation: messageAnimation 2s ease-out;
-    }
-
     #gallery {
       display: flex;
       justify-content: center;
@@ -65,7 +56,7 @@
   </section>
 
   <button id="playMusic">Play Music</button>
-  
+
   <iframe id="ytplayer" type="text/html" width="0" height="0"
   src="https://www.youtube.com/embed/y3KJ7d2qBoA?enablejsapi=1"
   frameborder="0"></iframe>
@@ -105,8 +96,8 @@
 
     class Heart {
       constructor() {
-        this.x = random(width);
-        this.y = random(height);
+        this.x = random(windowWidth);
+        this.y = random(windowHeight);
         this.size = random(15, 40);
         this.speed = random(1, 3);
         this.color = color(random(255), random(0), random(255));
@@ -114,9 +105,9 @@
 
       float() {
         this.y += this.speed;
-        if (this.y > height + this.size) {
+        if (this.y > windowHeight + this.size) {
           this.y = -this.size;
-          this.x = random(width);
+          this.x = random(windowWidth);
         }
       }
 
