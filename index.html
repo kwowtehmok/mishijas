@@ -30,11 +30,13 @@
       justify-content: center;
       border: 5px solid #f2a2e8; /* Frame */
       width: 100%;
-      height: auto;
+      height: 400px; /* Fixed height */
+      overflow: hidden; /* Hide overflow */
     }
     #gallery img {
       max-width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover; /* Cover entire area without stretching */
     }
     footer {
       background-color: #f2a2e8;
@@ -58,7 +60,7 @@
   <section id="gallery">
     <!-- Image gallery will go here -->
   </section>
-  <iframe id="ytplayer" type="text/html" width="640" height="360"
+  <iframe id="ytplayer" type="text/html" width="200" height="113"
   src="https://www.youtube.com/embed/y3KJ7d2qBoA?enablejsapi=1"
   frameborder="0"></iframe>
   <footer>
@@ -73,7 +75,7 @@
       img.id = "carousel";
       img.src = `hijas1.jpeg`;
       img.style.width = '100%';
-      img.style.height = 'auto';
+      img.style.height = '100%';
       gallery.appendChild(img);
       setInterval(() => {
         currentImageIndex++;
@@ -83,11 +85,8 @@
         document.getElementById("carousel").src = `hijas${currentImageIndex}.jpeg`;
       }, 3000);
       // Pop-up for video
-      alert("Please click 'Play' on the video below to hear the music!");
+      alert("Please click 'Play' on the YouTube video at the bottom to hear the music!");
     });
-  </script>
-  <script>
-    // Music (Removed as it's not needed with the embedded video)
   </script>
   <script>
     // Hearts
