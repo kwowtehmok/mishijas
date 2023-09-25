@@ -99,16 +99,14 @@ window.addEventListener("DOMContentLoaded", () => {
   let numHearts = 50;
 
   function setup() {
-    let canvas = createCanvas(windowWidth, windowHeight);
-    canvas.position(0, 0);
-    canvas.style('z-index', '-1');
+    createCanvas(640, 480);
     for (let i = 0; i < numHearts; i++) {
       hearts.push(new Heart());
     }
   }
 
   function draw() {
-    background(255, 255, 255, 0);
+    clear();
     for (let heart of hearts) {
       heart.float();
       heart.display();
@@ -149,6 +147,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 </script>
+
 
 </body>
 </html>
