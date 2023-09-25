@@ -70,28 +70,28 @@
   </footer>
 
   <script>
-    let currentImageIndex = 1;
+let currentImageIndex = 1;
 
-    window.addEventListener("DOMContentLoaded", () => {
-      const gallery = document.getElementById("gallery");
-      const img = document.createElement("img");
-      img.id = "carousel";
-      img.src = `hijas1.jpg`;
-      gallery.appendChild(img);
+window.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.getElementById("gallery");
+  const img = document.createElement("img");
+  img.id = "carousel";
+  img.src = `hijas1.jpeg`;  // Changed from .jpg to .jpeg
+  gallery.appendChild(img);
 
-      setInterval(() => {
-        currentImageIndex++;
-        if (currentImageIndex > 30) {
-          currentImageIndex = 1;
-        }
-        document.getElementById("carousel").src = `hijas${currentImageIndex}.jpg`;
-      }, 3000);
+  setInterval(() => {
+    currentImageIndex++;
+    if (currentImageIndex > 30) {
+      currentImageIndex = 1;
+    }
+    document.getElementById("carousel").src = `hijas${currentImageIndex}.jpeg`;  // Changed from .jpg to .jpeg
+  }, 3000);
 
-      document.getElementById("playMusic").addEventListener("click", () => {
-        const audio = document.getElementById("audio");
-        audio.play();
-      });
-    });
+  document.getElementById("playMusic").addEventListener("click", () => {
+    const audio = document.getElementById("audio");
+    audio.play();
+  });
+});
   </script>
 </body>
 </html>
