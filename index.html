@@ -11,7 +11,7 @@
       padding: 0;
       position: relative;
     }
-    header, section, footer, button {
+    header, section, footer {
       z-index: 1;
       position: relative;
     }
@@ -28,6 +28,9 @@
     #gallery {
       display: flex;
       justify-content: center;
+      border: 5px solid #f2a2e8; /* Frame */
+      width: 100%;
+      height: auto;
     }
     #gallery img {
       max-width: 100%;
@@ -55,10 +58,9 @@
   <section id="gallery">
     <!-- Image gallery will go here -->
   </section>
-  <button id="playMusic">Play Music</button>
-  <iframe id="ytplayer" type="text/html" width="0" height="0"
-src="https://www.youtube.com/embed/y3KJ7d2qBoA?enablejsapi=1&autoplay=1"
-frameborder="0"></iframe>
+  <iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/y3KJ7d2qBoA?enablejsapi=1"
+  frameborder="0"></iframe>
   <footer>
     <p>Love you, Always and Forever! -Dad ❤️</p>
   </footer>
@@ -80,15 +82,12 @@ frameborder="0"></iframe>
         }
         document.getElementById("carousel").src = `hijas${currentImageIndex}.jpeg`;
       }, 3000);
+      // Pop-up for video
+      alert("Please click 'Play' on the video below to hear the music!");
     });
   </script>
   <script>
-
-    // Music
-document.getElementById("playMusic").addEventListener("click", () => {
-  const ytplayer = document.getElementById("ytplayer");
-  ytplayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-});   
+    // Music (Removed as it's not needed with the embedded video)
   </script>
   <script>
     // Hearts
