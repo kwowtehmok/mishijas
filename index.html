@@ -9,7 +9,6 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      z-index: -2;
       position: relative;
     }
 
@@ -66,9 +65,11 @@
   </section>
 
   <button id="playMusic">Play Music</button>
+  
   <iframe id="ytplayer" type="text/html" width="0" height="0"
-  src="https://www.youtube.com/embed/y3KJ7d2qBoA?autoplay=0"
+  src="https://www.youtube.com/embed/y3KJ7d2qBoA?enablejsapi=1"
   frameborder="0"></iframe>
+
   <footer>
     <p>Love you, Always and Forever! -Dad ❤️</p>
   </footer>
@@ -92,8 +93,8 @@
       }, 3000);
 
       document.getElementById("playMusic").addEventListener("click", () => {
-        const audio = document.getElementById("audio");
-        audio.play();
+        const ytplayer = document.getElementById("ytplayer");
+        ytplayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
       });
     });
   </script>
@@ -140,7 +141,7 @@
     function setup() {
       let cnv = createCanvas(windowWidth, windowHeight);
       cnv.position(0, 0);
-      cnv.style('z-index', '1');
+      cnv.style('z-index', '-1');
       cnv.parent('body');
       for (let i = 0; i < numHearts; i++) {
         hearts.push(new Heart());
