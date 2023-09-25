@@ -66,10 +66,11 @@
   </section>
 
   <button id="playMusic">Play Music</button>
-  <audio id="audio" src="background_music.mp3" loop></audio>
-
+  <iframe id="ytplayer" type="text/html" width="0" height="0"
+  src="https://www.youtube.com/embed/y3KJ7d2qBoA?autoplay=0"
+  frameborder="0"></iframe>
   <footer>
-    <p>Love, Dad ❤️</p>
+    <p>Love you, Always and Forever! -Dad ❤️</p>
   </footer>
 
   <script>
@@ -139,7 +140,7 @@
     function setup() {
       let cnv = createCanvas(windowWidth, windowHeight);
       cnv.position(0, 0);
-      cnv.style('z-index', '-1');
+      cnv.style('z-index', '1');
       cnv.parent('body');
       for (let i = 0; i < numHearts; i++) {
         hearts.push(new Heart());
