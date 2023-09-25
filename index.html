@@ -68,31 +68,6 @@
   <footer>
     <p>Love, Dad ❤️</p>
   </footer>
-
-  <script>
-let currentImageIndex = 1;
-
-window.addEventListener("DOMContentLoaded", () => {
-  const gallery = document.getElementById("gallery");
-  const img = document.createElement("img");
-  img.id = "carousel";
-  img.src = `hijas1.jpeg`;  // Changed from .jpg to .jpeg
-  gallery.appendChild(img);
-
-  setInterval(() => {
-    currentImageIndex++;
-    if (currentImageIndex > 30) {
-      currentImageIndex = 1;
-    }
-    document.getElementById("carousel").src = `hijas${currentImageIndex}.jpeg`;  // Changed from .jpg to .jpeg
-  }, 3000);
-
-  document.getElementById("playMusic").addEventListener("click", () => {
-    const audio = document.getElementById("audio");
-    audio.play();
-  });
-});
-  </script>
 <script>
   let hearts = [];
   let numHearts = 50;
@@ -150,6 +125,31 @@ function setup() {
     }
   }
 </script>
+  <script>
+let currentImageIndex = 1;
+
+window.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.getElementById("gallery");
+  const img = document.createElement("img");
+  img.id = "carousel";
+  img.src = `hijas1.jpeg`;  // Changed from .jpg to .jpeg
+  gallery.appendChild(img);
+
+  setInterval(() => {
+    currentImageIndex++;
+    if (currentImageIndex > 30) {
+      currentImageIndex = 1;
+    }
+    document.getElementById("carousel").src = `hijas${currentImageIndex}.jpeg`;  // Changed from .jpg to .jpeg
+  }, 3000);
+
+  document.getElementById("playMusic").addEventListener("click", () => {
+    const audio = document.getElementById("audio");
+    audio.play();
+  });
+});
+  </script>
+
 
 
 
