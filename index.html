@@ -93,7 +93,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
   </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 <script>
   let hearts = [];
   let numHearts = 50;
@@ -108,9 +107,9 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     float() {
-      this.y -= this.speed;
-      if (this.y < -this.size) {
-        this.y = height + this.size;
+      this.y += this.speed;
+      if (this.y > height + this.size) {
+        this.y = -this.size;
         this.x = random(width);
       }
     }
@@ -119,26 +118,29 @@ window.addEventListener("DOMContentLoaded", () => {
       fill(this.color);
       stroke(255);
       strokeWeight(2);
+      push();
+      translate(this.x, this.y);
+      scale(1, -1);
       beginShape();
       for (let i = 0; i < TWO_PI; i += 0.01) {
         let x = 16 * pow(sin(i), 3);
         let y = 13 * cos(i) - 5 * cos(2 * i) - 2 * cos(3 * i) - cos(4 * i);
-        vertex(this.x + x, this.y + y);
+        vertex(x, y);
       }
       endShape(CLOSE);
+      pop();
     }
   }
 
-
-function setup() {
-  let cnv = createCanvas(windowWidth, windowHeight);
-  cnv.position(0, 0); // Set the position
-  cnv.style('z-index', '-1'); // Send to back layer
-  for (let i = 0; i < numHearts; i++) {
-    hearts.push(new Heart());
+  function setup() {
+    let cnv = createCanvas(windowWidth, windowHeight);
+    cnv.position(0, 0); // Set the position
+    cnv.style('z-index', '-1'); // Send to back layer
+    for (let i = 0; i < numHearts; i++) {
+      hearts.push(new Heart());
+    }
   }
-}
- 
+
   function draw() {
     clear();
     for (let heart of hearts) {
@@ -147,6 +149,7 @@ function setup() {
     }
   }
 </script>
+
 
 
 </body>
