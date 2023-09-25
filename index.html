@@ -57,8 +57,8 @@
   </section>
   <button id="playMusic">Play Music</button>
   <iframe id="ytplayer" type="text/html" width="0" height="0"
-  src="https://www.youtube.com/embed/y3KJ7d2qBoA?enablejsapi=1"
-  frameborder="0"></iframe>
+src="https://www.youtube.com/embed/y3KJ7d2qBoA?enablejsapi=1&autoplay=1"
+frameborder="0"></iframe>
   <footer>
     <p>Love you, Always and Forever! -Dad ❤️</p>
   </footer>
@@ -83,13 +83,12 @@
     });
   </script>
   <script>
+
     // Music
-    window.addEventListener("DOMContentLoaded", () => {
-      if (confirm("Would you like to play music?")) {
-        const ytplayer = document.getElementById("ytplayer");
-        ytplayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-      }
-    });
+document.getElementById("playMusic").addEventListener("click", () => {
+  const ytplayer = document.getElementById("ytplayer");
+  ytplayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+});   
   </script>
   <script>
     // Hearts
