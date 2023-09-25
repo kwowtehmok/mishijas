@@ -132,15 +132,16 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function setup() {
-    let cnv = createCanvas(windowWidth, windowHeight);
-    cnv.position(0, 0); // Set the position
-    cnv.style('z-index', '-1'); // Send to back layer
-    for (let i = 0; i < numHearts; i++) {
-      hearts.push(new Heart());
-    }
+function setup() {
+  let cnv = createCanvas(windowWidth, windowHeight);
+  cnv.position(0, 0); // Set the position
+  cnv.style('z-index', '-1'); // Send to back layer
+  cnv.parent('body'); // Set the parent to body
+  for (let i = 0; i < numHearts; i++) {
+    hearts.push(new Heart());
   }
-
+}
+  
   function draw() {
     clear();
     for (let heart of hearts) {
