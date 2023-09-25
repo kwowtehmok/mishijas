@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Daughter's Day!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f2a2e8;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #message {
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    @keyframes messageAnimation {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    #message p {
+      animation: messageAnimation 2s ease-out;
+    }
+
+    #gallery {
+      display: flex;
+      justify-content: center;
+    }
+
+    #gallery img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    footer {
+      background-color: #f2a2e8;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happy Daughter's Day!</h1>
+  </header>
+
+  <section id="message">
+    <p>A special message for my wonderful daughters, Camila and Valencia.</p>
+  </section>
+
+  <section id="gallery">
+    <!-- Image gallery will go here -->
+  </section>
+
+  <button id="playMusic">Play Music</button>
+  <audio id="audio" src="background_music.mp3" loop></audio>
+
+  <footer>
+    <p>Love, Dad ❤️</p>
+  </footer>
+
+  <script>
+    let currentImageIndex = 1;
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const gallery = document.getElementById("gallery");
+      const img = document.createElement("img");
+      img.id = "carousel";
+      img.src = `hijas1.jpg`;
+      gallery.appendChild(img);
+
+      setInterval(() => {
+        currentImageIndex++;
+        if (currentImageIndex > 30) {
+          currentImageIndex = 1;
+        }
+        document.getElementById("carousel").src = `hijas${currentImageIndex}.jpg`;
+      }, 3000);
+
+      document.getElementById("playMusic").addEventListener("click", () => {
+        const audio = document.getElementById("audio");
+        audio.play();
+      });
+    });
+  </script>
+</body>
+</html>
 
