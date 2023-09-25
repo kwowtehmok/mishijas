@@ -98,6 +98,37 @@ window.addEventListener("DOMContentLoaded", () => {
   let hearts = [];
   let numHearts = 50;
 
+  class Heart {
+    constructor() {
+      this.x = random(width);
+      this.y = random(height);
+      this.size = random(15, 40);
+      this.speed = random(1, 3);
+      this.color = color(random(255), random(0), random(255));
+    }
+
+    float() {
+      this.y -= this.speed;
+      if (this.y < -this.size) {
+        this.y = height + this.size;
+        this.x = random(width);
+      }
+    }
+
+    display() {
+      fill(this.color);
+      stroke(255);
+      strokeWeight(2);
+      beginShape();
+      for (let i = 0; i < TWO_PI; i += 0.01) {
+        let x = 16 * pow(sin(i), 3);
+        let y = 13 * cos(i) - 5 * cos(2 * i) - 2 * cos(3 * i) - cos(4 * i);
+        vertex(this.x + x, this.y + y);
+      }
+      endShape(CLOSE);
+    }
+  }
+
   function setup() {
     createCanvas(windowWidth, windowHeight);
     for (let i = 0; i < numHearts; i++) {
@@ -113,6 +144,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 </script>
+
 
 </body>
 </html>
