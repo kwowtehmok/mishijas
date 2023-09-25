@@ -30,14 +30,18 @@
       justify-content: center;
     }
     #gallery img {
-      width: 400px;
-      height: 400px;
-      object-fit: cover;
+      max-width: 100%;
+      height: auto;
     }
     footer {
       background-color: #f2a2e8;
       text-align: center;
       padding: 10px;
+    }
+    @media (max-width: 768px) {
+      #message {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -59,6 +63,27 @@
     <p>Love you, Always and Forever! -Dad ❤️</p>
   </footer>
   <script>
+    // Image Gallery
+    let currentImageIndex = 1;
+    window.addEventListener("DOMContentLoaded", () => {
+      const gallery = document.getElementById("gallery");
+      const img = document.createElement("img");
+      img.id = "carousel";
+      img.src = `hijas1.jpeg`;
+      img.style.width = '100%';
+      img.style.height = 'auto';
+      gallery.appendChild(img);
+      setInterval(() => {
+        currentImageIndex++;
+        if (currentImageIndex > 30) {
+          currentImageIndex = 1;
+        }
+        document.getElementById("carousel").src = `hijas${currentImageIndex}.jpeg`;
+      }, 3000);
+    });
+  </script>
+  <script>
+    // Music
     window.addEventListener("DOMContentLoaded", () => {
       if (confirm("Would you like to play music?")) {
         const ytplayer = document.getElementById("ytplayer");
@@ -67,6 +92,7 @@
     });
   </script>
   <script>
+    // Hearts
     let hearts = [];
     let numHearts = 50;
     class Heart {
@@ -115,6 +141,12 @@
         heart.float();
         heart.display();
       }
+    }
+  </script>
+  <script>
+    // Resize
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
     }
   </script>
 </body>
